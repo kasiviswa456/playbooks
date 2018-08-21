@@ -1,0 +1,47 @@
+Deployment in wildfly has two methods.
+
+1. console
+2. cmd line
+
+
+
+Deploying war through cmd line has three methods
+
+1.....interactive mode.
+2.....non-interactive mode.
+3.....copy war file to deployments directory.
+
+
+
+To deploy a war file to wildfly in interactive mode...
+ 
+./jboss-cli.sh -c   =  to login into interactive mode..
+
+delpoy warfilepath = to delpoy war in interactive mode.
+
+deployment-info = to see the all successful deployments.
+
+undeploy warfilename  =  to undeploy war..
+ 
+ 
+ 
+
+To deploy war to wildfly in non-interactive mode....
+ 
+ 
+/opt/wildfly-9.0.2.Final/bin/jboss-cli.sh -c controller=ip:9990 --user=username --password=password --command="deploy /root/RED/sample.war" 
+
+
+
+you can also copy the war file to standalone/deployments directory to deploy application..
+
+cp warfilepath /wildfly-path/standalone/deployments
+
+it will copy the war file to that path.... 
+
+
+
+ 
+
+ 
+ 
