@@ -1,0 +1,14 @@
+---
+- name: Launching aws ec2 instance
+  hosts: localhost
+  gather_facts: false
+  tasks:
+   - name: Launching ec2
+     ec2:
+       aws_access_key: AKIAJ33KIRGIJWFO5Z4A
+       aws_secret_key: 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
+       instance_type: t2.micro
+       image: ami-67589505
+       key_name: viswa
+       region: ap-southeast-2
+       
