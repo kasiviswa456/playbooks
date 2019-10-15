@@ -1,0 +1,26 @@
+---
+  - name: install multiple pckgs
+    hosts: web
+    become: yes
+    gather_facts: true
+    tasks:
+      - name: Installing the web server on RedHat family
+        yum:
+          name: httpd
+          state: present
+        when: ansible_os_family=="RedHat"
+      - name: Installing webserver on Debian family
+        apt:
+          name: apache2
+          state: present
+        when: ansible_os_family=="Debian"
+      - name: Installing Java on REdHat family
+        yum:
+          name: java-1.8.0=openjdk
+          state: present
+        when: ansible_os_family=="RedHat"
+      - name: Installing java on Debian family
+        apt:
+          name: openjdk-8-jdk
+          state: present
+        when: ansible_os_family=="Debian"

@@ -1,0 +1,16 @@
+---
+  - name: install multiple pckgs
+    hosts: web
+    become: yes
+    gather_facts: true
+    tasks:
+      - include_tasks: install_webserver_{{ansible_os_family}}.yml
+#        when: ansible_os_family=="RedHat"
+      - include_tasks: install_webserver_{{ansible_os_family}}.yml
+#        when: ansible_os_family=="Debian"
+#      - include_tasks: install_java_RedHat.yml
+#        when: ansible_os_family=="RedHat"
+#      - include_tasks: install_java_Debian.yml
+#        when: ansible_os_family=="Debian"
+
+

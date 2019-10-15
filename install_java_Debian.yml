@@ -1,0 +1,5 @@
+---
+ - name: install java on Debain family
+   apt:
+    name: openjdk-8-jdk
+    state: present

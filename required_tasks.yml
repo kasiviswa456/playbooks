@@ -1,0 +1,21 @@
+---
+  - name: install java in localhost
+    hosts: web
+    become: yes
+    gather_facts: false
+    vars:
+      req_java: jre-1.8.0-openjdk
+      set_java: jre-1.8.0-openjdk
+    tasks: 
+      - name: updating repos
+        yum:
+          name: '*'
+          state: latest
+      - name: Installing required java
+        yum:
+          name: "{{req_java}}"
+          state: present
+      - name: chossing the java version
+        alternatives:
+          name: java
+          path: /usr/lib/jvm/{{set_java}}/bin/java
